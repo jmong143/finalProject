@@ -7,6 +7,7 @@ class BaseController extends Controller {
 	var $adminListView = '';
 	var $showView = '';
 	var $userView = '';
+	var $createView = '';
 	
 	protected function setupLayout()
 	{
@@ -74,19 +75,16 @@ class BaseController extends Controller {
 	}
 	public function user()
 	{
-		if (Auth::check())
-		{
-			echo "aa";
-		}	
+		if (Auth::check()){
 		
-		exit;	
-		$dtrModel = $this->dtrModel->get($userid);
-		return View::make($this->userView)
-		->with('userList', $dtrModel);
-		
-
-				
+			$id = Auth::user()->id;
+			//echo $id;
+			$dtrModel = $this->dtrModel->get();
+			return View::make($this->userView)
+			->with('userList', $dtrModel);
+			
 	}
+}
 	
 	public function getLogout()
 	{
@@ -97,6 +95,14 @@ class BaseController extends Controller {
 		
 	}
 	public function dtOutProcess(){
+	
+	}
+	
+	public function create(){
+		return View::make($this->createView);
+	}
+	
+	public function createProcess(){
 	
 	}
 }
