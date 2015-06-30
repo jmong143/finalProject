@@ -15,12 +15,16 @@ Welcome user
   <thead>
 
   <tr>
+  	  <th>User ID</th>
       <th>Date Time Record</th>
     </tr>
   </thead>
   <tbody>
-@foreach($userList as $userlist)
+
+  
+  @foreach($userList as $userlist)
   <tr class = "primary">		
+	  <td>{{ link_to_route('view', $userlist->userid, array($userlist->id)) }}</td>
       <td>{{ link_to_route('view', $userlist->datetime, array($userlist->id)) }}</td>
     </tr>
     </tbody>
@@ -31,3 +35,12 @@ Welcome user
 {{ Form::open(['route' => 'logout', 'method' => 'POST'])}}
 	{{ Form::submit(' Logout ') }}
 {{ Form::close() }}
+
+
+<?php 
+if (Auth::check()){
+
+$id = Auth::user()->id;
+echo $id;
+}
+?>

@@ -18,7 +18,7 @@
 {{ Form::label('password', 'Password:' )}}<br/>
 {{ Form::password('password',  null, array('class' => 'form-control')) }}
 </p>
-
+<p>{{ link_to_route('create', 'Create Account') }}</p>
 <p>
 {{ Form::submit(' Login ', array('class' => 'btn btn-primary')) }}
 </p>

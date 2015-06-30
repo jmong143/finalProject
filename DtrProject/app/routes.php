@@ -25,4 +25,5 @@ Route::get('/login/user', array('as' => 'user', 'uses' => 'LoginController@user'
 Route::post('/login/logout', array('as' => 'logout', 'uses'=>'LoginController@getLogout'));
 Route::post('/login/date-time-in', array('as' => 'dtin', 'uses'=>'LoginController@dtInProcess'));
 Route::post('/login/date-time-out', array('as' => 'dtout', 'uses'=>'LoginController@dtOutProcess'));
-
+Route::get('/login/create', array('as' =>'create', 'uses'=>'LoginController@create'));
+Route::post('/login/create-process', array('as' =>'create.process', 'uses'=>'LoginController@createProcess'));
